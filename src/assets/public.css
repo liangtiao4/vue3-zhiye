@@ -1,0 +1,29 @@
+body, ul {
+  padding: 0;
+  margin: 0;
+}
+body {
+  min-width: 1190px;
+  overflow: auto;
+}
+ul {
+  list-style: none;
+}
+.row-x {
+  padding: 0 100px;
+}
+/* 描述文本两行显示,超出省略号表示 */
+.des-text-2 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.des-text-1 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
