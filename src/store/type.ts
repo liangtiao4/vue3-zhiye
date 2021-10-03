@@ -1,4 +1,5 @@
 export interface userProp {
+  _id?: number,
   username?: string,
   isLogin: boolean
 }

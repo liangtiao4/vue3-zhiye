@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import Toast from '@/components/Toast.vue'
 
-const useCreateToast = (message: string, status: string, timeout = 2000000): void => {
+const useCreateToast = (message: string, status: string, timeout = 2000): void => {
   const toastComponent = createApp(Toast, {
     message,
     status

@@ -3,7 +3,7 @@
     <label for="exampleInputEmail1">{{title}}</label>
     <input
       v-if="tag === 'input'"
-      id="exampleInputEmail1"
+      class="exampleInputEmail1"
       :class="{ 'form-control': true, 'is-invalid': isErr }"
       aria-describedby="emailHelp"
       v-bind="$attrs"
@@ -13,7 +13,7 @@
     />
     <textarea
       v-else
-      id="exampleInputEmail1"
+      class="exampleInputEmail1"
       :class="{ 'form-control': true, 'is-invalid': isErr }"
       aria-describedby="emailHelp"
       v-bind="$attrs"

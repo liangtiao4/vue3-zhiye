@@ -35,7 +35,7 @@
 import { defineComponent, ref } from 'vue'
 import ValidateForm from '@/components/ValidateForm.vue'
 import ValidateInput from '@/components/ValidateInput.vue'
-import { emailRules, passwordRules } from '@/utils/validateRule'
+import { emailRules, passwordRules } from '@/utils/validateRules'
 
 export default defineComponent({
   name: 'Register',

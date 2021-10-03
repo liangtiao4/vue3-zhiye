@@ -15,7 +15,7 @@
         <dropdown-item>
           <router-link to="/post/create">编辑文章</router-link>
         </dropdown-item>
-        <dropdown-item><router-link href="#">编辑资料</router-link></dropdown-item>
+        <dropdown-item><router-link to="#">编辑资料</router-link></dropdown-item>
         <dropdown-item><div @click="handleLogout">退出登陆</div></dropdown-item>
       </dropdown>
     </li>

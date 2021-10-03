@@ -35,13 +35,11 @@ const store = createStore<GlobalState>({
   },
   mutations: {
     setLoading (state, flag) { state.isLoading = flag },
-    login (state, { loginMsg, code }) {
+    login (state, { code, token }) {
       if (code) {
-        const { token, exq } = loginMsg
         state.token = token
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
         localStorage.setItem('token', token)
-        localStorage.setItem('exq', exq)
       }
     },
     logout (state) {
@@ -50,8 +48,10 @@ const store = createStore<GlobalState>({
       localStorage.removeItem('token')
       delete axios.defaults.headers.common.Authorization
     },
-    getUser (state, { user }) {
-      state.userinfo = { ...user, isLogin: true }
+    getUser (state, { code, user }) {
+      if (code) {
+        state.userinfo = { ...user, isLogin: true }
+      }
     },
     getColumn (state, data) {
       state.columnList = data.list
@@ -70,8 +70,8 @@ const store = createStore<GlobalState>({
       return data
     },
     async asyncGetUser ({ commit }) {
-      const res = await requestUser()
-      commit('getUser', res.data)
+      const { data } = await requestUser()
+      commit('getUser', data)
     },
     async loginAndGetUser ({ dispatch }, loginData) {
       return dispatch('asyncLogin', loginData).then(data => {

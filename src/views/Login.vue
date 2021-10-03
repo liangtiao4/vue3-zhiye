@@ -29,20 +29,12 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import ValidateInput, { RuleProp } from '@/components/ValidateInput.vue'
+import ValidateInput from '@/components/ValidateInput.vue'
 import ValidateForm from '@/components/ValidateForm.vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import useCreateToast from '@/hooks/useCreateToast'
-
-const emailRules: RuleProp[] = [
-  { type: 'required', msg: '邮箱输入框不能为空' },
-  { type: 'email', msg: '邮箱格式不合法' }
-]
-const passwordRules: RuleProp[] = [
-  { type: 'required', msg: '密码输入框不能为空' }
-  // { type: 'password', msg: '密码至少有六位，有大小写字母' }
-]
+import { emailRules, passwordRules } from '@/utils/validateRules'
 
 export default defineComponent({
   name: 'Login',
@@ -58,12 +50,10 @@ export default defineComponent({
         store.dispatch('loginAndGetUser', {
           email: emailVal.value,
           password: passwordVal.value
-        }).then(res => {
-          console.log(res)
-          const { msg, code } = res
+        }).then(({ code, msg }) => {
           if (code) {
             // 登录成功
-            useCreateToast(msg, 'success')
+            useCreateToast(`${msg} 2秒后跳转到主页。`, 'success')
             setTimeout(() => {
               router.replace('/index')
             }, 2000)
@@ -91,7 +81,7 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('http://127.0.0.1:8000/assets/login-bg.jpg');
-  background-size: 100% 110%;
+  /* background-image: url('http://127.0.0.1:8000/assets/login-bg.jpg'); */
+  /* background-size: 100% 110%; */
 }
 </style>

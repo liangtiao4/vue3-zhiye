@@ -7,9 +7,7 @@ interface myData{
 }
 
 export function requestLogin (email: string, password: string): Promise<AxiosResponse<myData>> {
-  return axios.post('user/login', { email, password }, {
-    headers: { 'content-type': 'application/x-www-form-urlencoded' }
-  })
+  return axios.post('user/login', { email, password })
 }
 
 export function requestUser (): Promise<AxiosResponse<myData>> {
