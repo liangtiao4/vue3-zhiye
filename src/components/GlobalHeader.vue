@@ -52,7 +52,8 @@ export default defineComponent({
     }
     const handleLogout = () => {
       store.commit('logout')
-      useCreateToast('成功退出登录！', 'success')
+      useCreateToast('成功退出登录！', 'success', 1000)
+      router.replace('/index')
     }
     return {
       toLoginPage,

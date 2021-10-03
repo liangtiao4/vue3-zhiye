@@ -23,19 +23,11 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import ValidateForm from '@/components/ValidateForm.vue'
-import ValidateInput, { RuleProp } from '@/components/ValidateInput.vue'
+import ValidateInput from '@/components/ValidateInput.vue'
 import { postItem } from '@/store/type'
 import { useRouter } from 'vue-router'
 import { requestCreatePost } from '@/http'
-
-const titleRules: RuleProp[] = [
-  { type: 'required', msg: '标题输入框不能为空' },
-  { type: 'posttitle', msg: '标题长度不能少于6个字' }
-]
-const contentRules: RuleProp[] = [
-  { type: 'required', msg: '文章内容输入框不能为空' },
-  { type: 'postcontent', msg: '内容长度不能少于12个字' }
-]
+import { titleRules, contentRules } from '@/utils/validateRules'
 
 export default defineComponent({
   name: 'CreatePost',
@@ -52,8 +44,9 @@ export default defineComponent({
         columnId
       }
       if (result) {
-        requestCreatePost(postItem).then(res => {
-          if (res.data.code) {
+        requestCreatePost(postItem).then(({ data }) => {
+          console.log('data', data)
+          if (data.code) {
             router.replace(`/column/detail/${columnId}`)
           }
         })

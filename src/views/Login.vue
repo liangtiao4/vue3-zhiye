@@ -66,10 +66,10 @@ export default defineComponent({
     }
     return {
       emailRules,
-      emailVal,
-      onSubmitClick,
       passwordRules,
-      passwordVal
+      emailVal,
+      passwordVal,
+      onSubmitClick
     }
   }
 })

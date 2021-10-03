@@ -28,8 +28,12 @@ export default defineComponent({
     const user = computed(() => store.state.userinfo)
     const isLoading = computed(() => store.state.isLoading)
     onMounted(() => {
-      // const token = localStorage.getItem('token')
-      // const isLogin = store.state.userinfo.isLogin
+      console.log('app mounted')
+      const token = localStorage.getItem('token')
+      const isLogin = store.state.userinfo.isLogin
+      if (token && !isLogin) {
+        store.dispatch('asyncGetUser')
+      }
     })
     return {
       user,

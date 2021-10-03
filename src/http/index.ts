@@ -27,5 +27,5 @@ export function requestPostList (): Promise<AxiosResponse<myData>> {
 }
 
 export function requestCreatePost (item: postItem): Promise<AxiosResponse<myData>> {
-  return axios.post('post/create', { ...item }, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
+  return axios.post('post/create', { ...item })
 }
