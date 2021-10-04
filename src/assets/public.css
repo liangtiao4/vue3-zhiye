@@ -1,16 +1,47 @@
-body, ul {
+body, ul, p, label {
   padding: 0;
   margin: 0;
 }
 body {
-  min-width: 1190px;
+  min-width: 80em;
   overflow: auto;
+  background-color: #F5F5F5;
 }
 ul {
   list-style: none;
+  cursor: pointer;
 }
 .row-x {
   padding: 0 100px;
+}
+/* 主题内容容器 */
+.main {
+  display: flex;
+  justify-content: center;
+  width: 70em;
+  margin: 80px auto 0;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+  z-index: 99;
+}
+#home {
+  flex-grow: 1;
+}
+footer {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+footer > span {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0 0.2em;
 }
 /* 描述文本两行显示,超出省略号表示 */
 .des-text-2 {
@@ -26,4 +57,50 @@ ul {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+/* flex常用布局 */
+.column-center {
+  /* 垂直方向居中 */
+  display: flex;
+  align-items: center;
+}
+.row-between{
+  display: flex;
+  justify-content: space-between;
+}
+.between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 字体和文本 */
+.text-logo {
+  font-size: 24px;
+  font-weight: 600;
+  color: #007bff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.fs-12 { font-size: 12px !important; }
+.text-h5 {
+  font-size: 20rpx;
+  font-weight: 600;
+}
+.text-grey {
+  color: #A9A9A9;
+}
+
+/* 边框 */
+.border-b { border-bottom: 1px solid #A9A9A9; }
+
+/* 标签 */
+.label {
+  display: inline-block;
+  padding: .1em 0.5em;
+}
+.label-grey {
+  background: #f6f6f6;
+  color: #A9A9A9;
 }

@@ -3,27 +3,38 @@
   <button
     type="button"
     class="btn btn-secondary dropdown-toggle"
-    data-toggle="dropdown"
-    aria-expanded="false"
     @click="toggleDropdown"
+    v-if="tag === 'button'"
   >
     {{title}}
   </button>
-  <ul class="dropdown-menu dropdown-menu-right" v-show="isOpen">
+  <div
+    class="dropdown-toggle"
+    @click="toggleDropdown"
+    v-else
+  >
+    {{title}}
+  </div>
+  <ul class="dropdown-menu dropdown-menu-middle" v-show="isOpen">
     <slot />
   </ul>
 </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
+import { defineComponent, ref, watch, PropType } from 'vue'
 import useClickOutside from '@/hooks/useClickOutside'
+type TagType = 'button' | 'div'
 export default defineComponent({
   name: 'dropdown',
   props: {
     title: {
       type: String,
       required: true
+    },
+    tag: {
+      type: String as PropType<TagType>,
+      default: 'button'
     }
   },
   setup () {
@@ -53,5 +64,11 @@ export default defineComponent({
 .dropdown-menu{
   display: block;
   position: absolute !important;
+}
+.dropdown-menu-middle {
+  right: 50%;
+  left: auto;
+  transform: translateX(50%);
+  text-align: center;
 }
 </style>

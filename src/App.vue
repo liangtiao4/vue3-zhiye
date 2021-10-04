@@ -1,12 +1,16 @@
 <template>
   <loader v-if="isLoading" />
   <global-header :user='user' v-if="!hidden" />
-  <router-view class="row-x" />
+  <div class="main">
+    <router-view />
+  </div>
+  <global-footer />
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, watch, ref, onMounted } from 'vue'
 import GlobalHeader from '@/components/GlobalHeader.vue'
+import GlobalFooter from '@/components/GlobalFooter.vue'
 import Loader from '@/components/Loader.vue'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '@/assets/public.css'
@@ -15,7 +19,7 @@ import { useRoute } from 'vue-router'
 import { GlobalState } from '@/store'
 
 export default defineComponent({
-  components: { GlobalHeader, Loader },
+  components: { GlobalHeader, Loader, GlobalFooter },
   name: 'App',
   setup () {
     const route = useRoute()

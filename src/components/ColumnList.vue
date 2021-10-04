@@ -3,16 +3,16 @@
   <li
     v-for="column in list"
     :key="column._id"
-    class="col-4 mb-3"
+    class="mb-3 col-3"
   >
-    <div class="card text-center m-auto" style="width: 20rem; height: 22rem">
+    <div class="column-card card">
       <div class="card-body">
-        <img :src="column.imgUrl" :alt="column.title" class="pictrue">
-        <h5 class="card-title">{{column.title}}</h5>
+        <img :src="column.imgUrl" :alt="column.title" class="column-img">
+        <h5 class="card-title mt-2">{{column.title}}</h5>
         <p class="card-text des-text-2">{{column.des}}</p>
         <router-link
           :to="`/column/detail/${column._id}`"
-          class="btn btn-outline-primary btn-sm"
+          class="btn btn-outline-primary btn-sm mt-3"
         >进入专栏</router-link>
       </div>
     </div>
@@ -44,9 +44,15 @@ export default defineComponent({
 </script>
 
 <style>
-.pictrue {
-  width: 180px;
-  height: 180px;
+.column-card {
+  max-width: 16em;
+  min-height: 20em;
+  text-align: center;
+  margin: auto;
+}
+.column-img {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   user-select: none;
   -webkit-user-drag: none;

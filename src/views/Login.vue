@@ -16,12 +16,13 @@
       :rules="passwordRules"
       v-model="passwordVal"
     />
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">记住账号密码</label>
+    <div class="column-center mb-2">
+      <input type="checkbox" id="reme">
+      <label class="ml-1 mb-0 flex-grow-1" for="reme">记住账号密码</label>
+      <router-link to="/register">没有账号?</router-link>
     </div>
     <template #submit>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary w-100">登录</button>
     </template>
   </validate-form>
 </div>

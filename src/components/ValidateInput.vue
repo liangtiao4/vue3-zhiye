@@ -1,11 +1,9 @@
 <template>
   <div class="mb-3">
-    <label for="exampleInputEmail1">{{title}}</label>
+    <label>{{title}}</label>
     <input
       v-if="tag === 'input'"
-      class="exampleInputEmail1"
       :class="{ 'form-control': true, 'is-invalid': isErr }"
-      aria-describedby="emailHelp"
       v-bind="$attrs"
       :value="val"
       @input="setModelVal"
@@ -13,9 +11,7 @@
     />
     <textarea
       v-else
-      class="exampleInputEmail1"
       :class="{ 'form-control': true, 'is-invalid': isErr }"
-      aria-describedby="emailHelp"
       v-bind="$attrs"
       :value="val"
       @input="setModelVal"
