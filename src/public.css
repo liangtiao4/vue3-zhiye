@@ -3,9 +3,9 @@ body, ul, p, label {
   margin: 0;
 }
 body {
-  min-width: 80em;
   overflow: auto;
   background-color: #F5F5F5;
+  min-width: 80em;
 }
 ul {
   list-style: none;
@@ -15,11 +15,9 @@ ul {
   padding: 0 100px;
 }
 /* 主题内容容器 */
-.main {
-  display: flex;
-  justify-content: center;
+#home {
   width: 70em;
-  margin: 80px auto 0;
+  margin: 0 auto;
 }
 header {
   position: fixed;
@@ -74,6 +72,13 @@ footer > span {
   justify-content: space-between;
   align-items: center;
 }
+.flex-center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('http://127.0.0.1/assets/login-bg.jpg') no-repeat 100% 100%;
+}
 
 /* 字体和文本 */
 .text-logo {
@@ -84,12 +89,19 @@ footer > span {
   margin-right: 20px;
 }
 .fs-12 { font-size: 12px !important; }
+.fs-18 { font-size: 18px !important; }
 .text-h5 {
   font-size: 20rpx;
   font-weight: 600;
 }
 .text-grey {
   color: #A9A9A9;
+}
+.title-h3 {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /* 边框 */

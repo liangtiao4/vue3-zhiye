@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import './public.css'
 
 axios.defaults.baseURL = 'http://127.0.0.1:8081/zhiye/api/'
 const token = localStorage.getItem('token')

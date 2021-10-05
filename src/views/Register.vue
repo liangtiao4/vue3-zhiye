@@ -1,6 +1,7 @@
 <template>
 <div id="register" class="flex-center">
   <validate-form @form-submit="onSubmitClick" style="width: 26rem">
+    <h3 class="title-h3">注册</h3>
     <validate-input
       type="email"
       title="输入邮箱"
@@ -25,7 +26,7 @@
       v-model="passwordVal"
     />
     <template #submit>
-      <button type="submit" class="btn btn-primary">注册</button>
+      <button type="submit" class="btn btn-primary w-100">注册</button>
     </template>
   </validate-form>
 </div>
@@ -55,6 +56,5 @@ export default defineComponent({
 })
 </script>
 
-<style>
-
+<style scoped>
 </style>

@@ -15,12 +15,20 @@ const router = createRouter({
     {
       path: '/register',
       component: () => import('@/views/Register.vue'),
-      name: 'register'
+      name: 'register',
+      meta: {
+        hiddenGlobalHeaderAndFooter: true
+      }
     },
     {
       path: '/index',
       component: () => import('@/views/Home.vue'),
       name: 'index'
+    },
+    {
+      path: '/column',
+      component: () => import('@/views/Column.vue'),
+      name: 'column'
     },
     {
       path: '/column/detail/:columnId',

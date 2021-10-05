@@ -1,6 +1,6 @@
 <template>
   <div class="mb-3">
-    <label>{{title}}</label>
+    <h3 class="fs-18">{{title}}</h3>
     <input
       v-if="tag === 'input'"
       :class="{ 'form-control': true, 'is-invalid': isErr }"

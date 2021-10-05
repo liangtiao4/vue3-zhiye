@@ -1,18 +1,18 @@
 <template>
-  <div id="column-detail" class="m-3">
-    <div class="cd-title">
-      <div class="cd-title-img">
-        <img :src="columnItem.imgUrl" alt="这是图片">
-      </div>
-      <div class="cd-title-content">
-        <h3>{{columnItem.title}}</h3>
-        <p>{{columnItem.des}}</p>
-      </div>
+<div id="column-detail">
+  <div class="cd-title">
+    <div class="cd-title-img">
+      <img :src="columnItem.imgUrl" alt="这是图片">
     </div>
-    <div>
-      <post-list :list='postList' />
+    <div class="cd-title-content">
+      <h3>{{columnItem.title}}</h3>
+      <p>{{columnItem.des}}</p>
     </div>
   </div>
+  <div>
+    <post-list :list='postList' />
+  </div>
+</div>
 </template>
 
 <script lang="ts">
@@ -44,6 +44,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
+#column-detail {
+  margin-top: 80px;
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 100%;
+}
 .cd-title {
   display: flex;
   align-items: center;

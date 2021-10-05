@@ -4,31 +4,37 @@
     <div class="column-center">
       <div class="text-logo">之也</div>
       <ul class="nav column-center">
-        <li class="c-item nav-active">
-          <router-link to="/index">首页</router-link>
+        <li v-for="({name, path, child}, i) in navList"
+          :key="name"
+          :class="{
+            'c-item': true,
+            'column-center': child,
+            'nav-active': cIndex === i
+          }"
+          @click="handleNavbar(i)"
+        >
+          <router-link :to="path" v-if="!child">
+            {{name}}
+          </router-link>
+          <!-- <dropdown title="专栏" tag="div" v-else>
+            <dropdown-item v-for="c in child" :key="c.name">
+              <router-link class="dropdown-item" :to="c.cpath">
+                {{c.name}}
+              </router-link>
+            </dropdown-item>
+          </dropdown> -->
         </li>
-        <li class="c-item column-center">
-          <dropdown title="专栏" tag="div">
-            <dropdown-item>
-              <router-link class="dropdown-item" to="/post/create">创建专栏</router-link>
-            </dropdown-item>
-            <dropdown-item>
-              <router-link class="dropdown-item" to="/post/create">新建文章</router-link>
-            </dropdown-item>
-            <dropdown-item>
-              <a class="dropdown-item" href="#">编辑文章</a>
-            </dropdown-item>
-          </dropdown>
-        </li>
-        <li class="c-item">发现</li>
       </ul>
     </div>
     <ul class="navbar-nav flex-row" v-if="!user.isLogin">
-      <li class="nav-item mx-1">
-        <button class="btn btn-primary" type="submit" @click="toLoginPage">登录</button>
-      </li>
-      <li class="nav-item mx-1">
-        <button class="btn btn-secondary" type="submit" @click="toRegisterPage">注册</button>
+      <li class="nav-item mx-1" v-for="btn in navBtns" :key="btn.name">
+        <button
+          :class="`btn btn-${btn.color}`"
+          type="submit"
+          @click="navigateTo(btn.path)"
+        >
+          {{btn.name}}
+        </button>
       </li>
     </ul>
     <ul class="navbar-nav flex-row" v-else>
@@ -45,7 +51,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, ref, PropType } from 'vue'
 import Dropdown from './Dropdown.vue'
 import DropdownItem from './DropdownItem.vue'
 import { useRouter } from 'vue-router'
@@ -65,20 +71,36 @@ export default defineComponent({
   setup () {
     const router = useRouter()
     const store = useStore()
-    const toLoginPage = () => {
-      router.push('/login')
-    }
-    const toRegisterPage = () => {
-      router.push('/register')
-    }
+    const navList = [
+      { name: '首页', path: '/index' },
+      {
+        name: '专栏',
+        path: '/column'
+        // child: [
+        //   { name: '申请专栏', cpath: '#' },
+        //   { name: '添加文章', cpath: '/post/create' }
+        // ]
+      },
+      { name: '发现', path: '#' }
+    ]
+    const cIndex = ref(0) // 当前导航栏选择下标
+    const navBtns = [
+      { name: '登录', path: '/login', color: 'primary' },
+      { name: '注册', path: '/register', color: 'secondary' }
+    ]
+    const handleNavbar = (i: number) => { cIndex.value = i }
+    const navigateTo = (path: string) => { router.push(path) }
     const handleLogout = () => {
       store.commit('logout')
       useCreateToast('成功退出登录！', 'success', 1000)
       router.replace('/index')
     }
     return {
-      toLoginPage,
-      toRegisterPage,
+      navList,
+      cIndex,
+      navBtns,
+      handleNavbar,
+      navigateTo,
       handleLogout
     }
   }
@@ -94,6 +116,7 @@ export default defineComponent({
 .nav a{
   color: #212529;
   text-decoration: none;
+  padding: 0.8em 0;
 }
 .column-center > .c-item {
   padding: 0.8em 0;

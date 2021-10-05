@@ -1,10 +1,8 @@
 <template>
   <loader v-if="isLoading" />
   <global-header :user='user' v-if="!hidden" />
-  <div class="main">
-    <router-view />
-  </div>
-  <global-footer />
+  <router-view />
+  <global-footer v-if="!hidden" />
 </template>
 
 <script lang="ts">
@@ -12,8 +10,6 @@ import { computed, defineComponent, watch, ref, onMounted } from 'vue'
 import GlobalHeader from '@/components/GlobalHeader.vue'
 import GlobalFooter from '@/components/GlobalFooter.vue'
 import Loader from '@/components/Loader.vue'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import '@/assets/public.css'
 import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
 import { GlobalState } from '@/store'
@@ -32,7 +28,6 @@ export default defineComponent({
     const user = computed(() => store.state.userinfo)
     const isLoading = computed(() => store.state.isLoading)
     onMounted(() => {
-      console.log('app mounted')
       const token = localStorage.getItem('token')
       const isLogin = store.state.userinfo.isLogin
       if (token && !isLogin) {

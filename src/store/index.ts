@@ -80,12 +80,13 @@ const store = createStore<GlobalState>({
         return data
       })
     },
-    // 获取栏目列表
+    // 获取专栏列表
     async asyncGetColumn ({ commit }) {
       const res = await requestColumnList()
+      // console.log('column list', res.data)
       commit('getColumn', res.data)
     },
-    // 获取单个栏目
+    // 获取指定id的专栏
     async asyncGetColumnItem (store, id) {
       const res = await requestColumnItem(id)
       store.commit('getColumnItem', res.data)

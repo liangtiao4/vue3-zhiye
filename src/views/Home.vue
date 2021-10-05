@@ -34,5 +34,7 @@ export default defineComponent({
 </script>
 
 <style>
-
+#home {
+  margin-top: 80px;
+}
 </style>

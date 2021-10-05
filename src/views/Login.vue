@@ -1,6 +1,7 @@
 <template>
 <div id="login" class="flex-center">
   <validate-form @form-submit="onSubmitClick" style="width: 26rem">
+    <h3 class="title-h3">邮箱登录</h3>
     <validate-input
       type="email"
       title="邮箱"
@@ -76,13 +77,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.flex-center {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-image: url('http://127.0.0.1:8000/assets/login-bg.jpg'); */
-  /* background-size: 100% 110%; */
-}
+<style>
+
 </style>

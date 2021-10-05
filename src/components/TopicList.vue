@@ -1,8 +1,8 @@
 <template>
 <ul class="topic">
-  <li v-for="(item, i) in 3" :key="i">
+  <li v-for="(item, i) in 2" :key="i">
     <div class="card mb-3">
-      <img src="@/assets/imgs/2.jpg" class="card-img-top">
+      <img src="http://127.0.0.1/assets/item2.jpg" class="card-img-top">
       <div class="card-body between-center">
         <div>
           <h5 class="text-h5">前端辣么多要学的</h5>
@@ -25,8 +25,9 @@
 
 <script>
 import { defineComponent } from 'vue'
-export default defineComponent({
 
+export default defineComponent({
+  name: 'TopicList'
 })
 </script>
 
