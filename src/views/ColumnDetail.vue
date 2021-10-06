@@ -45,10 +45,9 @@ export default defineComponent({
 
 <style scoped>
 #column-detail {
-  margin-top: 80px;
-  margin-left: 1em;
-  margin-right: 1em;
-  width: 100%;
+  width: 70em;
+  margin: 0 auto;
+  padding-top: 80px;
 }
 .cd-title {
   display: flex;
