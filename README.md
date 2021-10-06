@@ -12,7 +12,7 @@ Vue3 + Vuex + vue-router + ES6  + TypeScript + Bootstrap4 + express + nodemon + 
 
 > 目前该项目尚未达到理想目标，将继续更新~ 
 
-> 适合想要学习或刚学习完 Vue3 和 TypeScript 想找项目的练手的小伙伴们
+> 适合想要学习或刚学习完 Vue3 和 TypeScript，想找项目练手的小伙伴们
 
 ## 项目运行
 
