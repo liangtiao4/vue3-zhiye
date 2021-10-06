@@ -78,9 +78,9 @@ App running at: http://localhost:8080/
 
 ```
 │  package-lock.json								// 包信息
-│  package.json								// 包管理
-│  README.md								// 说明文档
-│  tsconfig.json								// ts配置文件
+│  package.json								        // 包管理
+│  README.md							        	// 说明文档
+│  tsconfig.json								    // ts配置文件
 │
 ├─effectDiagram										// 项目效果图
 │      1.login.png									// 登录页
